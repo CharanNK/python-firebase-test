@@ -16,5 +16,16 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 db=firebase.database()
 
 #push data
-data={"name":"Charan","age":20,"address":["Aravindanagar","Mysore"]}
-db.push(data)
+#data={"users":[{"name":"Charan","age":20,"address":["Aravindanagar","Mysore"]},
+               #  {"name":"Diksha","age":26,"address":["Dattagalli","Mysore"]}
+               # ]}
+
+#Pushing single document
+data = {"name":"Charan","age":20,"address":["Aravindanagar","Mysore"]}
+db.child("Branch").child("Engineering").child("Employees").set(data)
+#db.push(data)
+
+#create your own key
+#data = {"name":"Bharath","age":25,"address":["Lakshmipuram","Mysore"]}
+#db.child("Bharath").set(data)
+
